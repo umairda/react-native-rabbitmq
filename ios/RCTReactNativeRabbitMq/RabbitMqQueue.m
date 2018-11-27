@@ -112,4 +112,16 @@ RCT_EXPORT_MODULE();
     [self.channel ack:deliveryTag];
 }
 
+RCT_EXPORT_METHOD(publish:(NSData *)data
+    properties:(NSArray<RMQValue<RMQBasicValue> *> *)properties
+    options:(RMQBasicPublishOptions)options,
+    exchange:(NSString *)exchange) {
+      return [self.channel 
+        basicPublish:data
+        routingKey:self.name
+        exchange:@exchange
+        properties:properties
+        options:options];
+}
+
 @end

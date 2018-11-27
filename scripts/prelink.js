@@ -20,8 +20,9 @@ try {
     }
 
     function checkVersion() {
-        console.log('react-native-rabbitmq checking app version ..');
-        return parseFloat(/\d\.\d+(?=\.)/.exec(package.dependencies['react-native']));
+        console.log('react-native-rabbitmq checking app version => '+version);
+        var version = parseFloat(/\d\.\d+(?=\.)/.exec(package.dependencies['react-native']));
+        return version;
     }
 
 } catch(err) {
